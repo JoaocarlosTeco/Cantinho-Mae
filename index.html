@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cantinho de Mãe - O lugar favorito de toda família</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="/api/placeholder/100/100" alt="Logo Cantinho de Mãe">
+                <div class="logo-text">
+                    <h1>Cantinho de Mãe</h1>
+                    <p>O lugar favorito de toda família</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#menu">Cardápio</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h2>Sabores que fazem você voltar</h2>
+            <p>Especialistas em sopas, cuscuz recheado e hot dogs. Venha experimentar!</p>
+            <a href="#menu" class="btn">Ver Cardápio</a>
+        </div>
+    </section>
+    
+    <section id="menu" class="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nosso Cardápio</h2>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Buscar no cardápio...">
+                <button onclick="searchMenu()"><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="menu-categories">
+                <button class="category-btn active" data-category="all">Todos</button>
+                <button class="category-btn" data-category="recheados">Recheados</button>
+                <button class="category-btn" data-category="hotdogs">Hot Dogs</button>
+                <button class="category-btn" data-category="sopas">Sopas</button>
+                <button class="category-btn" data-category="bebidas">Bebidas</button>
+            </div>
+            
+            <div class="menu-grid" id="menu-grid">
+                <div class="menu-item" data-category="recheados">
+                    <div class="menu-item-img">
+                        <img src="/api/placeholder/300/200" alt="Cuscuz Recheado Tradicional">
+                        <button class="favorite" data-id="1"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="menu-item-info">
+                        <h3>Cuscuz Recheado Tradicional</h3>
+                        <p>Delicioso cuscuz com recheio de carne, milho e queijo. O favorito da casa!</p>
+                        <div class="menu-item-footer">
+                            <span class="price">R$18,90</span>
+                        </div>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" class="quantity" value="0" min="0" max="10">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="order-btn" data-id="1" data-name="Cuscuz Recheado Tradicional" data-price="18.90">Adicionar ao Pedido</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="recheados">
+                    <div class="menu-item-img">
+                        <img src="/api/placeholder/300/200" alt="Super Recheado">
+                        <button class="favorite" data-id="2"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="menu-item-info">
+                        <h3>Super Recheado</h3>
+                        <p>Versão ampliada do nosso cuscuz recheado com porções extras de carne e queijo.</p>
+                        <div class="menu-item-footer">
+                            <span class="price">R$24,90</span>
+                        </div>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" class="quantity" value="0" min="0" max="10">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="order-btn" data-id="2" data-name="Super Recheado" data-price="24.90">Adicionar ao Pedido</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="recheados">
+                    <div class="menu-item-img">
+                        <img src="/api/placeholder/300/200" alt="Escondidinho de Charque">
+                        <button class="favorite" data-id="3"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="menu-item-info">
+                        <h3>Escondidinho de Charque</h3>
+                        <p>Purê de mandioca com recheio de charque desfiada, coberto com queijo gratinado.</p>
+                        <div class="menu-item-footer">
+                            <span class="price">R$22,90</span>
+                        </div>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" class="quantity" value="0" min="0" max="10">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="order-btn" data-id="3" data-name="Escondidinho de Charque" data-price="22.90">Adicionar ao Pedido</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="hotdogs">
+                    <div class="menu-item-img">
+                        <img src="/api/placeholder/300/200" alt="Hot Dog Tradicional">
+                        <button class="favorite" data-id="4"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="menu-item-info">
+                        <h3>Hot Dog Tradicional</h3>
+                        <p>Pão especial, salsicha, molho caseiro, batata palha, milho, ervilha e queijo ralado.</p>
+                        <div class="menu-item-footer">
+                            <span class="price">R$12,90</span>
+                        </div>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" class="quantity" value="0" min="0" max="10">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="order-btn" data-id="4" data-name="Hot Dog Tradicional" data-price="12.90">Adicionar ao Pedido</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="hotdogs">
+                    <div class="menu-item-img">
+                        <img src="/api/placeholder/300/200" alt="Hot Dog Especial">
+                        <button class="favorite" data-id="5"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="menu-item-info">
+                        <h3>Hot Dog Especial</h3>
+                        <p>Versão premium com bacon, cheddar, catupiry e molho especial da casa.</p>
+                        <div class="menu-item-footer">
+                            <span class="price">R$16,90</span>
+                        </div>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" class="quantity" value="0" min="0" max="10">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="order-btn" data-id="5" data-name="Hot Dog Especial" data-price="16.90">Adicionar ao Pedido</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="hotdogs">
+                    <div class="menu-item-img">
+                        <img src="/api/placeholder/300/200" alt="Hot Dog Vegetariano">
+                        <button class="favorite" data-id="6"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="menu-item-info">
+                        <h3>Hot Dog Vegetariano</h3>
+                        <p>Pão especial, salsicha vegetal, molho de tomate caseiro e vegetais frescos.</p>
+                        <div class="menu-item-footer">
+                            <span class="price">R$14,90</span>
+                        </div>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" class="quantity" value="0" min="0" max="10">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="order-btn" data-id="6" data-name="Hot Dog Vegetariano" data-price="14.90">Adicionar ao Pedido</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="sopas">
+                    <div class="menu-item-img">
+                        <img src="/api/placeholder/300/200" alt="Sopa de Feijão">
+                        <button class="favorite" data-id="7"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="menu-item-info">
+                        <h3>Sopa de Feijão</h3>
+                        <p>Sopa cremosa de feijão com bacon, linguiça calabresa e temperos especiais.</p>
+                        <div class="menu-item-footer">
+                            <span class="price">R$14,90</span>
+                        </div>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" class="quantity" value="0" min="0" max="10">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="order-btn" data-id="7" data-name="Sopa de Feijão" data-price="14.90">Adicionar ao Pedido</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="sopas">
+                    <div class="menu-item-img">
+                        <img src="/api/placeholder/300/200" alt="Sopa de Legumes">
+                        <button class="favorite" data-id="8"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="menu-item-info">
+                        <h3>Sopa de Legumes</h3>
+                        <p>Seleção de legumes frescos com toque de ervas, perfeita para dias frios.</p>
+                        <div class="menu-item-footer">
+                            <span class="price">R$12,90</span>
+                        </div>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" class="quantity" value="0" min="0" max="10">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="order-btn" data-id="8" data-name="Sopa de Legumes" data-price="12.90">Adicionar ao Pedido</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="bebidas">
+                    <div class="menu-item-img">
+                        <img src="/api/placeholder/300/200" alt="Suco Natural">
+                        <button class="favorite" data-id="9"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="menu-item-info">
+                        <h3>Suco Natural</h3>
+                        <p>Opções: laranja, abacaxi com hortelã ou limonada. Fresco e natural.</p>
+                        <div class="menu-item-footer">
+                            <span class="price">R$8,90</span>
+                        </div>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" class="quantity" value="0" min="0" max="10">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="order-btn" data-id="9" data-name="Suco Natural" data-price="8.90">Adicionar ao Pedido</button>
+                    </div>
+                </div>
+                
+                <div class="menu-item" data-category="bebidas">
+                    <div class="menu-item-img">
+                        <img src="/api/placeholder/300/200" alt="Refrigerante">
+                        <button class="favorite" data-id="10"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="menu-item-info">
+                        <h3>Refrigerante</h3>
+                        <p>Opções: Coca-Cola, Guaraná ou Sprite. Lata de 350ml.</p>
+                        <div class="menu-item-footer">
+                            <span class="price">R$6,90</span>
+                        </div>
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" class="quantity" value="0" min="0" max="10">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <button class="order-btn" data-id="10" data-name="Refrigerante" data-price="6.90">Adicionar ao Pedido</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" class="about">
+        <div class="container about-content">
+            <div class="about-text">
+                <h2>Sobre o Cantinho de Mãe</h2>
+                <p>O Cantinho de Mãe nasceu do amor pela cozinha caseira e da vontade de compartilhar sabores que aquecem o coração. Somos especialistas em sopas, cuscuz recheado e hot dogs, sempre com ingredientes frescos e um toque de carinho em cada prato.</p>
+                <p>Venha nos visitar e faça parte da nossa família!</p>
+            </div>
+            <div class="about-img">
+                <img src="/api/placeholder/600/400" alt="Sobre o Cantinho de Mãe">
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <div class="container contact-content">
+            <div class="contact-info">
+                <h3>Entre em Contato</h3>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Endereço</h4>
+                        <p>Rua das Flores, 123, Centro, São Paulo - SP</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>Telefone</h4>
+                        <p>(11) 98765-4321</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h4>E-mail</h4>
+                        <p>contato@cantinhodemae.com.br</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Envie uma Mensagem</h3>
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" placeholder="Seu nome">
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="Seu e-mail">
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea id="message" placeholder="Sua mensagem"></textarea>
+                </div>
+                <button class="submit-btn" onclick="submitContactForm()">Enviar</button>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <img src="/api/placeholder/100/100" alt="Logo Cantinho de Mãe">
+                <div class="footer-logo-text">
+                    <h3>Cantinho de Mãe</h3>
+                    <p>O lugar favorito de toda família</p>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <p class="copyright">© 2025 Cantinho de Mãe. Todos os direitos reservados.</p>
+    </footer>
+    
+    <div class="bottom-nav">
+        <div class="bottom-nav-content">
+            <a href="#home" class="bottom-nav-item">
+                <i class="fas fa-home"></i>
+                <span>Início</span>
+            </a>
+            <a href="#menu" class="bottom-nav-item">
+                <i class="fas fa-utensils"></i>
+                <span>Cardápio</span>
+            </a>
+            <a href="#about" class="bottom-nav-item">
+                <i class="fas fa-info-circle"></i>
+                <span>Sobre</span>
+            </a>
+            <a href="#contact" class="bottom-nav-item">
+                <i class="fas fa-envelope"></i>
+                <span>Contato</span>
+            </a>
+        </div>
+    </div>
+    
+    <div class="cart-btn" onclick="toggleCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cart-count">0</span>
+    </div>
+    
+    <div class="back-to-top" id="back-to-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Seu Pedido</h3>
+                <button class="close-cart" onclick="toggleCart()">✖</button>
+            </div>
+            <div class="favorites-section">
+                <h4>Favoritos</h4>
+                <div id="favorites-list"></div>
+            </div>
+            <div class="cart-items" id="cart-items"></div>
+            <div class="cart-summary" id="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">R$0,00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span id="total">R$0,00</span>
+                </div>
+            </div>
+            <button class="checkout-btn" id="checkout-btn" onclick="proceedToCheckout()">Finalizar Pedido</button>
+            <div class="checkout-form" id="checkout-form">
+                <h3>Confirme seu Pedido</h3>
+                <div class="form-group">
+                    <label for="checkout-name">Nome *</label>
+                    <input type="text" id="checkout-name" placeholder="Seu nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkout-table">Número da Mesa *</label>
+                    <input type="number" id="checkout-table" placeholder="Ex.: 1" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkout-payment">Forma de Pagamento *</label>
+                    <select id="checkout-payment" required>
+                        <option value="">Selecione uma opção</option>
+                        <option value="pix">PIX</option>
+                        <option value="card">Cartão de Crédito/Débito</option>
+                        <option value="cash">Dinheiro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="checkout-order-notes">Observações do Pedido</label>
+                    <textarea id="checkout-order-notes" placeholder="Ex.: sem cebola, adicionar ketchup"></textarea>
+                </div>
+                <button class="submit-btn" onclick="submitOrder()">Confirmar Pedido</button>
+                <button class="btn cancel-btn" onclick="cancelCheckout()">Cancelar</button>
+            </div>
+            <div class="success-message" id="success-message">
+                <h3>Pedido Confirmado!</h3>
+                <p class="order-confirmation" id="order-confirmation"></p>
+                <button class="btn" onclick="closeSuccessMessage()">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
