@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Pedidos - Cantinho de Mãe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <aside class="sidebar" role="navigation" aria-label="Menu principal">
+        <div class="logo">
+            <img src="https://via.placeholder.com/150x80" alt="Logo Cantinho de Mãe">
+            <h2>Cantinho de Mãe</h2>
+        </div>
+        <nav>
+            <ul>
+                <li class="active"><a href="#" aria-current="page"><i class="fas fa-chart-bar" aria-hidden="true"></i> Dashboard</a></li>
+                <li><a href="#"><i class="fas fa-utensils" aria-hidden="true"></i> Cardápio</a></li>
+                <li><a href="#"><i class="fas fa-users" aria-hidden="true"></i> Clientes</a></li>
+                <li><a href="#"><i class="fas fa-cog" aria-hidden="true"></i> Configurações</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <p>Versão 1.0</p>
+        </div>
+    </aside>
+
+    <div class="main-content">
+        <header>
+            <div class="header-content">
+                <button id="menu-toggle" aria-expanded="false" aria-controls="sidebar">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                    <span class="visually-hidden">Alternar menu</span>
+                </button>
+                <h1>Dashboard de Pedidos</h1>
+                <div class="user-info">
+                    <span>Olá, Administrador</span>
+                    <img src="https://via.placeholder.com/40" alt="Foto do administrador" class="user-avatar">
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-container">
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="stat-info">
+                        <h3>Pedidos Hoje</h3>
+                        <p id="pedidos-hoje">42</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-dollar-sign"></i></div>
+                    <div class="stat-info">
+                        <h3>Faturamento</h3>
+                        <p id="faturamento-hoje">R$ 2.450,00</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                    <div class="stat-info">
+                        <h3>Último Pedido</h3>
+                        <p id="tempo-ultimo-pedido">Há 5 minutos</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-table"></i></div>
+                    <div class="stat-info">
+                        <h3>Mesas Ativas</h3>
+                        <p id="mesas-ativas">12</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="column large">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Pedidos Recentes</h2>
+                            <div class="actions">
+                                <div class="search-container">
+                                    <label for="search-pedidos" class="visually-hidden">Pesquisar pedidos</label>
+                                    <input type="text" id="search-pedidos" placeholder="Pesquisar..." aria-describedby="search-hint">
+                                    <i class="fas fa-search" aria-hidden="true"></i>
+                                    <span id="search-hint" class="visually-hidden">Digite para filtrar os pedidos por nome, mesa ou outros detalhes.</span>
+                                </div>
+                                <div class="loading-spinner" style="display: none; text-align: center; padding: 10px;">
+                                    <i class="fas fa-spinner fa-spin"></i> Carregando...
+                                </div>
+                                <button id="refresh-btn" class="refresh-button"><i class="fas fa-sync-alt"></i> Atualizar</button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="pedidos-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Nome</th>
+                                            <th scope="col">Mesa</th>
+                                            <th scope="col">Pedido</th>
+                                            <th scope="col">Valor Total</th>
+                                            <th scope="col">Pagamento</th>
+                                            <th scope="col">Observação</th>
+                                            <th scope="col">Data/Hora</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Maria Silva</td>
+                                            <td>05</td>
+                                            <td>Hot Dog Tradicional</td>
+                                            <td>R$ 28,90</td>
+                                            <td>Cartão</td>
+                                            <td>Sem cebola</td>
+                                            <td>08/05/2025 19:30</td>
+                                        </tr>
+                                        <tr>
+                                            <td>João Pereira</td>
+                                            <td>12</td>
+                                            <td>Coxinha Recheada</td>
+                                            <td>R$ 18,50</td>
+                                            <td>Dinheiro</td>
+                                            <td>-</td>
+                                            <td>08/05/2025 19:25</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ana Ferreira</td>
+                                            <td>08</td>
+                                            <td>Suco Natural + Super Recheado</td>
+                                            <td>R$ 42,80</td>
+                                            <td>PIX</td>
+                                            <td>Sem açúcar no suco</td>
+                                            <td>08/05/2025 19:15</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pedro Santos</td>
+                                            <td>03</td>
+                                            <td>Hot Dog Vegetariano</td>
+                                            <td>R$ 25,90</td>
+                                            <td>Cartão</td>
+                                            <td>-</td>
+                                            <td>08/05/2025 19:10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Carla Mendes</td>
+                                            <td>10</td>
+                                            <td>Refrigerante + Escondidinho</td>
+                                            <td>R$ 35,80</td>
+                                            <td>PIX</td>
+                                            <td>Refrigerante sem gelo</td>
+                                            <td>08/05/2025 19:05</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="pagination">
+                                <button class="pagination-button active">1</button>
+                                <button class="pagination-button">2</button>
+                                <button class="pagination-button">3</button>
+                                <button class="pagination-button">...</button>
+                                <button class="pagination-button">10</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column small">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Formas de Pagamento</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="payment-chart"></canvas>
+                            </div>
+                            <div class="legend">
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background-color: #d4a017;"></span>
+                                    <span class="legend-label">PIX (45%)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background-color: #55873c;"></span>
+                                    <span class="legend-label">Cartão (35%)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color" style="background-color: #6b4226;"></span>
+                                    <span class="legend-label">Dinheiro (20%)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Produtos Mais Vendidos</h2>
+                        </div>
+                        <div class="card-body">
+                            <ul class="product-list">
+                                <li>
+                                    <div class="product-info">
+                                        <span class="product-rank">1</span>
+                                        <span class="product-name">Hot Dog Tradicional</span>
+                                    </div>
+                                    <div class="product-count">52 vendidos</div>
+                                </li>
+                                <li>
+                                    <div class="product-info">
+                                        <span class="product-rank">2</span>
+                                        <span class="product-name">Coxinha Recheada</span>
+                                    </div>
+                                    <div class="product-count">38 vendidos</div>
+                                </li>
+                                <li>
+                                    <div class="product-info">
+                                        <span class="product-rank">3</span>
+                                        <span class="product-name">Super Recheado</span>
+                                    </div>
+                                    <div class="product-count">29 vendidos</div>
+                                </li>
+                                <li>
+                                    <div class="product-info">
+                                        <span class="product-rank">4</span>
+                                        <span class="product-name">Suco Natural</span>
+                                    </div>
+                                    <div class="product-count">27 vendidos</div>
+                                </li>
+                                <li>
+                                    <div class="product-info">
+                                        <span class="product-rank">5</span>
+                                        <span class="product-name">Refrigerante</span>
+                                    </div>
+                                    <div class="product-count">25 vendidos</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
