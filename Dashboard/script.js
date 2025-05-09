@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const access = params.get('access');
 
     if (access !== 'secret9clicks') {
-        window.location.href = '../Cantinho-Mae/index.html';
+        window.location.href = '../Cantinho-Mae/index.html'; // Ajuste este caminho conforme a nova estrutura
     }
 });
 
