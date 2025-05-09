@@ -7,7 +7,7 @@ document.querySelector('.logo').addEventListener('click', function() {
     clearTimeout(clickTimeout);
 
     if (clickCount === 9) {
-        window.location.href = '../Dashboard/index.html?access=secret9clicks';
+        window.location.href = './Dashboard/index.html?access=secret9clicks';
         clickCount = 0;
     } else {
         clickTimeout = setTimeout(() => {
