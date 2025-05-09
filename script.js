@@ -18,9 +18,14 @@ document.addEventListener('DOMContentLoaded', function() {
             clearTimeout(clickTimeout);
 
             if (clickCount === 9) {
-                console.log('9 cliques atingidos, redirecionando para:', redirectPath);
-                window.location.href = redirectPath;
-                clickCount = 0;
+                console.log('9 cliques atingidos, tentando redirecionar para:', redirectPath);
+                try {
+                    window.location.href = redirectPath;
+                    console.log('Redirecionamento iniciado');
+                    clickCount = 0;
+                } catch (error) {
+                    console.error('Erro no redirecionamento:', error);
+                }
             } else {
                 clickTimeout = setTimeout(() => {
                     console.log('Resetando contagem de cliques');
@@ -92,7 +97,7 @@ function updateCart() {
             cartItem.classList.add('cart-item');
             cartItem.innerHTML = `
                 <div class="cart-item-img">
-                    <img src="/api/placeholder/80/80" alt="${item.name}">
+                    <img src="https://via.placeholder.com/80/80" alt="${item.name}">
                 </div>
                 <div class="cart-item-info">
                     <div class="cart-item-name">${item.name}</div>
