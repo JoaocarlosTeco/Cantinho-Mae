@@ -4,9 +4,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const params = new URLSearchParams(window.location.search);
     const access = params.get('access');
 
+    // Determina o baseurl dinamicamente
+    const currentPath = window.location.pathname; // Ex.: /Cantinho-Mae/Cantinho-Mae/Dashboard/index.html
+    const basePath = currentPath.substring(0, currentPath.lastIndexOf('/')); // Ex.: /Cantinho-Mae/Cantinho-Mae/Dashboard
+    const parentPath = basePath.substring(0, basePath.lastIndexOf('/')); // Ex.: /Cantinho-Mae/Cantinho-Mae
+    const redirectPath = `${parentPath}/index.html`;
+
     if (access !== 'secret9clicks') {
-        console.log('Acesso não autorizado, redirecionando para o site principal');
-        window.location.href = '/Cantinho-Mae/Cantinho-Mae/index.html';
+        console.log('Acesso não autorizado, redirecionando para:', redirectPath);
+        window.location.href = redirectPath;
     } else {
         console.log('Acesso autorizado ao dashboard');
     }

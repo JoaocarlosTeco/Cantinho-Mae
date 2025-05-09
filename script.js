@@ -4,6 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
     let clickCount = 0;
     let clickTimeout;
 
+    // Determina o baseurl dinamicamente
+    const currentPath = window.location.pathname; // Ex.: /Cantinho-Mae/Cantinho-Mae/index.html
+    const basePath = currentPath.substring(0, currentPath.lastIndexOf('/')); // Ex.: /Cantinho-Mae/Cantinho-Mae
+    const redirectPath = `${basePath}/Dashboard/index.html?access=secret9clicks`;
+
     const logoElement = document.querySelector('.logo');
     if (logoElement) {
         console.log('Elemento .logo encontrado');
@@ -13,8 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
             clearTimeout(clickTimeout);
 
             if (clickCount === 9) {
-                console.log('9 cliques atingidos, redirecionando para o dashboard');
-                window.location.href = '/Cantinho-Mae/Cantinho-Mae/Dashboard/index.html?access=secret9clicks';
+                console.log('9 cliques atingidos, redirecionando para:', redirectPath);
+                window.location.href = redirectPath;
                 clickCount = 0;
             } else {
                 clickTimeout = setTimeout(() => {
