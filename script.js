@@ -1,3 +1,22 @@
+// Contagem de cliques no logo para redirecionar ao dashboard
+let clickCount = 0;
+let clickTimeout;
+
+document.querySelector('.logo').addEventListener('click', function() {
+    clickCount++;
+    clearTimeout(clickTimeout);
+
+    if (clickCount === 9) {
+        window.location.href = '../Dashboard/index.html?access=secret9clicks';
+        clickCount = 0;
+    } else {
+        clickTimeout = setTimeout(() => {
+            clickCount = 0;
+        }, 1000);
+    }
+});
+
+// Código existente do Cantinho-Mae/script.js
 let cart = [];
 let favorites = [];
 
