@@ -1,10 +1,14 @@
 // Verificação de acesso ao dashboard
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Script do Dashboard carregado');
     const params = new URLSearchParams(window.location.search);
     const access = params.get('access');
 
     if (access !== 'secret9clicks') {
-        window.location.href = '/Cantinho-Mae/index.html';
+        console.log('Acesso não autorizado, redirecionando para o site principal');
+        window.location.href = '/Cantinho-Mae/Cantinho-Mae/index.html';
+    } else {
+        console.log('Acesso autorizado ao dashboard');
     }
 });
 

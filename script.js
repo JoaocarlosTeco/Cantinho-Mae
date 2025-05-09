@@ -1,19 +1,24 @@
 // Contagem de cliques no logo para redirecionar ao dashboard
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Script do Cantinho-Mae carregado');
     let clickCount = 0;
     let clickTimeout;
 
     const logoElement = document.querySelector('.logo');
     if (logoElement) {
+        console.log('Elemento .logo encontrado');
         logoElement.addEventListener('click', function() {
+            console.log('Clique registrado, total de cliques:', clickCount + 1);
             clickCount++;
             clearTimeout(clickTimeout);
 
             if (clickCount === 9) {
-                window.location.href = '/Cantinho-Mae/Dashboard/index.html?access=secret9clicks';
+                console.log('9 cliques atingidos, redirecionando para o dashboard');
+                window.location.href = '/Cantinho-Mae/Cantinho-Mae/Dashboard/index.html?access=secret9clicks';
                 clickCount = 0;
             } else {
                 clickTimeout = setTimeout(() => {
+                    console.log('Resetando contagem de cliques');
                     clickCount = 0;
                 }, 1000);
             }
